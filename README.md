@@ -5,7 +5,7 @@ Desenvolvido no curso Multi-stack da TreinaWeb
 
 ## Clona o repositório
 ```
-git clone https://github.com/nilsoncaputti/multistack-sistemaadministrativo-ediaristas-php
+git clone https://github.com/nilsoncaputti/multistack-sistemaadministrativo-ediaristas-php.git
 ```
 
 ## Instalar as dependencias 
