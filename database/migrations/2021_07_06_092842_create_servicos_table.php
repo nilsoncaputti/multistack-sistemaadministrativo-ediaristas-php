@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServicosTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('servicos', function (Blueprint $table) {
@@ -13,7 +18,7 @@ class CreateServicosTable extends Migration
 
             $table->string('nome');
 
-            $table->decimal('valor_minimo', 10, 2);
+            $table->decimal('valor_minimo', 10, 2); //12345678,90
             $table->integer('quantidade_horas');
 
             $table->decimal('porcentagem');
@@ -43,7 +48,11 @@ class CreateServicosTable extends Migration
         });
     }
 
-    //Apaga tabela de Serviços
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('servicos');

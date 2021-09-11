@@ -11,28 +11,25 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Nome</th>
+                <th scope="col">nome</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
-        
-        <tbody>      
+        <tbody>
             @forelse ($servicos as $servico)
                 <tr>
                     <th>{{ $servico->id }}</th>
                     <td>{{ $servico->nome }}</td>
                     <td>
-                        <a class="btn btn-warning" href="{{ route('servicos.edit', $servico) }}">Atualizar</a>
-                        {{-- <a class="btn btn-danger" href="{{ route('servicos.destroy', $servico) }}">Apagar</a> --}}
-                    </td> 
-                </tr> 
-
-                @empty
-                    <tr>
-                        <th></th>
-                        <th>Nenhum registro foi encontrado.</th>
-                        <th></th>
-                    </tr>
+                        <a href="{{ route('servicos.edit', $servico) }}" class="btn btn-primary">Atualizar</a>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <th></th>
+                    <th>Nenhum registro foi encontrado</th>
+                    <th></th>
+                </tr>
             @endforelse
         </tbody>
     </table>
