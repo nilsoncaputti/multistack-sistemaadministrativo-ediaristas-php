@@ -7,6 +7,12 @@
 @stop
 
 @section('content')
+    @if (session('mensagem'))
+        <div class="alert alert-success">
+            {{ session('mensagem') }}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>
@@ -15,6 +21,7 @@
                 <th scope="col">Ações</th>
             </tr>
         </thead>
+
         <tbody>
             @forelse ($servicos as $servico)
                 <tr>
@@ -24,6 +31,7 @@
                         <a href="{{ route('servicos.edit', $servico) }}" class="btn btn-primary">Atualizar</a>
                     </td>
                 </tr>
+                
             @empty
                 <tr>
                     <th></th>
