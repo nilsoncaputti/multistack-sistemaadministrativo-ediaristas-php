@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UsuarioRequest;
 
@@ -45,20 +44,16 @@ class UsuarioController extends Controller
     }
 
     // Mostar formulário de edição já preenchido com dados do usuário
-    public function edit($id)
+    public function edit(User $usuario)
     {
-        $usuario = User::findOrFail($id);
-
         return view('usuarios.edit', [
             'usuario' => $usuario
         ]);
     }
 
     // Atualiza registro no Banco de Dados
-    public function update(UsuarioRequest $request, $id)
+    public function update(UsuarioRequest $request, User $usuario)
     {
-        $usuario = User::findOrFail($id);
-
         $usuario->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -70,9 +65,8 @@ class UsuarioController extends Controller
     }
 
     // Excluir Usuário
-    public function destroy($id)
+    public function destroy(User $usuario)
     {
-        $usuario = User::findOrFail($id);
         $usuario->delete();
 
         return redirect()->route('usuarios.index')
